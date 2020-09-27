@@ -193,6 +193,8 @@ function loadCovidData() {
                   const dataTicks = dataRow.slice(4);
                   // calculate yesterday minus today into a new array of ticks 
                   const newCases = dataTicks.slice(1).map(function(n, i) { return n - dataTicks[i]; }); 
+                  // realign the index by prefixing 0 
+                  newCases.splice(0, 0, 0);
                   // re-prefix the index columns
                   return index.concat(newCases);
               });
